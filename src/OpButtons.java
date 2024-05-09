@@ -10,8 +10,11 @@ public class OpButtons {
     private Button multiplication;
     private Button subtraction;
     private Button addition;
+    private Calculator calculator;
 
-    OpButtons(){
+    OpButtons(Calculator calculator){
+        this.calculator = calculator;
+
         panel.setLayout(new GridLayout(4, 1, 5, 5));
         panel.setSize(150, 450);
 
@@ -34,15 +37,19 @@ public class OpButtons {
     private void addListeners(){
         division.addActionListener(e -> {
             System.out.println("/");
+            calculator.setOperator("/");
         });
         multiplication.addActionListener(e -> {
             System.out.println("*");
+            calculator.setOperator("*");
         });
         subtraction.addActionListener(e -> {
             System.out.println("-");
+            calculator.setOperator("-");
         });
         addition.addActionListener(e -> {
             System.out.println("+");
+            calculator.setOperator("+");
         });
     }
 }

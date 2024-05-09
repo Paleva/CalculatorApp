@@ -7,12 +7,18 @@ public class Gui {
     private JFrame mainFrame;
     private JPanel mainPanel;
     private GridBagConstraints gbc;
-    Gui(){
+    private Calculator calculator;
+    private ButtonPanel buttonPanel;
+    private CalculatorLabel calculatorLabel;
 
+    Gui(){
         mainFrame = MainFrame("Calculator");
         mainPanel = new JPanel();
         gbc = new GridBagConstraints();
         mainPanel.setLayout(new GridBagLayout());
+        calculator = new Calculator();
+        buttonPanel = new ButtonPanel(calculator);
+        calculatorLabel = new CalculatorLabel("0");
 
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -21,10 +27,10 @@ public class Gui {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
-        mainPanel.add(new CalculatorLabel("0").getLabel(), gbc);
+        mainPanel.add(calculatorLabel.getPanel(), gbc);
         gbc.gridy = 1;
         gbc.gridwidth = 1;
-        mainPanel.add(new ButtonPanel().getPanel(), gbc);
+        mainPanel.add(buttonPanel.getPanel(), gbc);
         mainFrame.setVisible(true);
         mainFrame.add(mainPanel); 
     }
@@ -37,4 +43,6 @@ public class Gui {
         frame.setResizable(false);
         return frame;
     }
+
+    
 }

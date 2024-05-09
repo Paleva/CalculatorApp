@@ -16,7 +16,9 @@ public class CalculatorLabel {
         panel.add(label);
     }
 
-    public JPanel getLabel(){
+    public JPanel getPanel(){
         return panel;
     }
+
+
 }

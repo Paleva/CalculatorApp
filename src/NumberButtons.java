@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 public class NumberButtons {
     
     private JPanel panel = new JPanel();
+
     private Button button_1;
     private Button button_2;
     private Button button_3;
@@ -19,7 +20,11 @@ public class NumberButtons {
     private Button button_clear;
     private Button button_equals;
 
-    NumberButtons(){
+    private Calculator calculator;
+
+    NumberButtons(Calculator calculator){
+        this.calculator = calculator;
+
         panel.setLayout(new GridLayout(4, 3, 5, 5));
         panel.setSize(new Dimension(300, 450));
         button_1 = new Button("1", new Dimension(100, 100));
@@ -55,40 +60,54 @@ public class NumberButtons {
 
     private void addListeners(){
         button_0.addActionListener(e -> {
-            System.out.println("0");   
+            System.out.println("0");
+            calculator.setNumber("0");
         });
         button_1.addActionListener(e -> {
-            System.out.println("1");   
+            System.out.println("1");
+            calculator.setNumber("1");
         });
         button_2.addActionListener(e -> {
-            System.out.println("2");   
+            System.out.println("2");
+            calculator.setNumber("2");
         });
         button_3.addActionListener(e -> {
-            System.out.println("3");   
+            System.out.println("3");
+            calculator.setNumber("3");
         });
         button_4.addActionListener(e -> {
-            System.out.println("4");   
+            System.out.println("4");
+            calculator.setNumber("4");
         });
         button_5.addActionListener(e -> {
-            System.out.println("5");   
+            System.out.println("5");
+            calculator.setNumber("5");
         });
         button_6.addActionListener(e -> {
-            System.out.println("6");   
+            System.out.println("6");
+            calculator.setNumber("6");
         });
         button_7.addActionListener(e -> {
-            System.out.println("7");   
+            System.out.println("7");
+            calculator.setNumber("7");
         });
         button_8.addActionListener(e -> {
-            System.out.println("8");   
+            System.out.println("8");
+            calculator.setNumber("8");
         });
         button_9.addActionListener(e -> {
-            System.out.println("9");   
+            System.out.println("9");
+            calculator.setNumber("9");
         });
         button_clear.addActionListener(e -> {
-            System.out.println("C");   
+            System.out.println("C");
+            calculator.clear();
+            calculator.clearResult();   
         });
         button_equals.addActionListener(e -> {
-            System.out.println("=");   
+            System.out.println("="); 
+            System.out.println(calculator.calculate());  
         });
-    }
+    } 
+
 }
