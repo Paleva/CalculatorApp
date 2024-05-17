@@ -14,7 +14,7 @@ public class CalculatorLabel {
     // private String str;
 
     private static CalculatorLabel calculatorLabel;
-    private String str;
+    
     CalculatorLabel(String text){
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
