@@ -1,16 +1,25 @@
 
 public class Calculator {
+
     private String number1;
     private String number2;
     private String operator;
     
-    private int result;
+    private Long result;
+    private static Calculator instance = null;
 
     public Calculator(){
         number1 = "";
         number2 = "";
         operator = "";
-        result = 0;
+        result = (long) 0;
+    }
+
+    public static Calculator getInstance(){
+        if(instance == null){
+            instance = new Calculator();
+        }
+        return instance;
     }
 
     public void setNumber(String number){
@@ -29,12 +38,12 @@ public class Calculator {
     
 
     public void clearResult(){
-        result = 0;
+        result = (long) 0;
     }
 
     public void setOperator(String operator){
         if(number1.equals("")){
-            number1 = Integer.toString(result);
+            number1 = Long.toString(result);
             this.operator = operator;
         }
         else{
@@ -42,25 +51,33 @@ public class Calculator {
         }
     }
 
-    public int calculate(){
+    public Long calculate(){
         result = calc();
         return result;
     }
 
-    private int calc(){
+    private Long calc(){
+
+        if(number2.equals("")){
+            number2 = number1;
+        }
+        else if(number1.equals("")){
+            number1 = Long.toString(result);
+        }
+
         System.out.println(number1 + " " + operator + " " + number2);
         switch(operator){
             case "+":
-                result = Integer.parseInt(number1) + Integer.parseInt(number2);
+                result = Long.parseLong(number1) + Long.parseLong(number2);
                 break;
             case "-":
-                result = Integer.parseInt(number1) - Integer.parseInt(number2);
+                result = Long.parseLong(number1) - Long.parseLong(number2);
                 break;
             case "*":
-                result = Integer.parseInt(number1) * Integer.parseInt(number2);
+                result = Long.parseLong(number1) * Long.parseLong(number2);
                 break;
             case "/":
-                result = Integer.parseInt(number1) / Integer.parseInt(number2);
+                result = Long.parseLong(number1) / Long.parseLong(number2);
                 break;
                 
         }

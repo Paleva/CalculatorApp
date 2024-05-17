@@ -7,7 +7,6 @@ public class Gui {
     private JFrame mainFrame;
     private JPanel mainPanel;
     private GridBagConstraints gbc;
-    private Calculator calculator;
     private ButtonPanel buttonPanel;
     private CalculatorLabel calculatorLabel;
 
@@ -16,9 +15,8 @@ public class Gui {
         mainPanel = new JPanel();
         gbc = new GridBagConstraints();
         mainPanel.setLayout(new GridBagLayout());
-        calculator = new Calculator();
-        buttonPanel = new ButtonPanel(calculator);
-        calculatorLabel = new CalculatorLabel("0");
+        buttonPanel = new ButtonPanel();
+        calculatorLabel = CalculatorLabel.getInstance("0");
 
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -26,7 +24,7 @@ public class Gui {
         gbc.weighty = 1;
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 4;
         mainPanel.add(calculatorLabel.getPanel(), gbc);
         gbc.gridy = 1;
         gbc.gridwidth = 1;

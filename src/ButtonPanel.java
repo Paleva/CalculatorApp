@@ -9,11 +9,11 @@ public class ButtonPanel extends JPanel {
     private JPanel buttonPanel;
     private JPanel opPanel;
 
-    ButtonPanel(Calculator calculator){
+    ButtonPanel(){
         panel = new JPanel();
         panel.setLayout(new GridBagLayout());
-        buttonPanel = new NumberButtons(calculator).getPanel();
-        opPanel = new OpButtons(calculator).getPanel();
+        buttonPanel = new NumberButtons().getPanel();
+        opPanel = new OpButtons().getPanel();
         GridBagConstraints gbc = new GridBagConstraints();
 
         gbc.fill = GridBagConstraints.BOTH;
