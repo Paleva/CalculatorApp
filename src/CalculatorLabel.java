@@ -9,13 +9,14 @@ import javax.swing.JPanel;
 
 public class CalculatorLabel {
 
-    private JLabel label = new JLabel();
-    private JPanel panel = new JPanel();
-    // private String str;
+    private JLabel label;
+    private JPanel panel;
 
     private static CalculatorLabel calculatorLabel;
     
     CalculatorLabel(String text){
+        label = new JLabel();
+        panel = new JPanel();
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;

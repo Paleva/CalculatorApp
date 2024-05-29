@@ -5,14 +5,14 @@ public class Calculator {
     private String number2;
     private String operator;
     
-    private Long result;
+    private Float result;
     private static Calculator instance = null;
 
     public Calculator(){
         number1 = "";
         number2 = "";
         operator = "";
-        result = (long) 0;
+        result =  (float) 0.0;
     }
 
     public static Calculator getInstance(){
@@ -38,12 +38,12 @@ public class Calculator {
     
 
     public void clearResult(){
-        result = (long) 0;
+        result = (float) 0;
     }
 
     public void setOperator(String operator){
         if(number1.equals("")){
-            number1 = Long.toString(result);
+            number1 = Float.toString(result);
             this.operator = operator;
         }
         else{
@@ -51,33 +51,33 @@ public class Calculator {
         }
     }
 
-    public Long calculate(){
+    public Float calculate(){
         result = calc();
         return result;
     }
 
-    private Long calc(){
+    private Float calc(){
 
         if(number2.equals("")){
             number2 = number1;
         }
         else if(number1.equals("")){
-            number1 = Long.toString(result);
+            number1 = Float.toString(result);
         }
 
         System.out.println(number1 + " " + operator + " " + number2);
         switch(operator){
             case "+":
-                result = Long.parseLong(number1) + Long.parseLong(number2);
+                result = Float.parseFloat(number1) + Float.parseFloat(number2);
                 break;
             case "-":
-                result = Long.parseLong(number1) - Long.parseLong(number2);
+                result = Float.parseFloat(number1) - Float.parseFloat(number2);
                 break;
             case "*":
-                result = Long.parseLong(number1) * Long.parseLong(number2);
+                result = Float.parseFloat(number1) * Float.parseFloat(number2);
                 break;
             case "/":
-                result = Long.parseLong(number1) / Long.parseLong(number2);
+                result = Float.parseFloat(number1) / Float.parseFloat(number2);
                 break;
                 
         }

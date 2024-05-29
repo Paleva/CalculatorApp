@@ -116,12 +116,12 @@ public class NumberButtons {
             System.out.println("C");
             calculator.clear();
             calculator.clearResult();
-            calculatorLabel.setText("0");   
+            calculatorLabel.setText("0")    ;   
         });
         button_equals.addActionListener(e -> {
             System.out.println("="); 
             System.out.println(calculator.calculate());
-            calculatorLabel.setText(Long.toString(calculator.calculate()));  
+            calculatorLabel.setText(Float.toString(calculator.calculate()));  
         });
     } 
 
